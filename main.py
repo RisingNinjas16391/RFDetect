@@ -16,7 +16,7 @@ def admin():
 
 @app.route('/centeragitator')
 def centera():
-    //need to create function
+    # need to create function
     return "oops"
   
 if __name__ == "__main__":
