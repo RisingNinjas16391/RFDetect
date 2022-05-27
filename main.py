@@ -1,10 +1,13 @@
 from flask import Flask, escape
 from flask import render_template, request, Response
 
-import RPi.GPIO as GPIO
+from Motor import Motor
 import json
 
+PINS = [0, 1]
 app = Flask(__name__)
+
+agitator = Motor(PINS, True)
 
 @app.route('/')
 def index():
@@ -15,9 +18,13 @@ def admin():
     return render_template('admin.html')
 
 @app.route('/centeragitator')
-def centera():
-    # need to create function
-    return "oops"
+def agitate():
+    if 'stop' in request.args and request.args['stop'].lower() = "true":
+        agitator.set_power(0)
+        return "stopped motor"
+    else:
+        agitator.set_power(100)
+        return "started motor"
   
 if __name__ == "__main__":
    print("Start")
