@@ -9,6 +9,11 @@ app = Flask(__name__)
 
 agitator = Motor(PINS, True)
 
+#TODO: add sensor class with multiprocessing to count balls
+
+sensor1 = None
+sensor2 = None
+
 @app.route('/')
 def index():
     return render_template('main.html')
@@ -16,6 +21,11 @@ def index():
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
+
+@app.route('/countballs')
+    def sensor():
+        # add sensor polling; maybe sensor.getcount?
+        return "nothing for now"
 
 @app.route('/centeragitator')
 def agitate():
