@@ -23,9 +23,9 @@ def admin():
     return render_template('admin.html')
 
 @app.route('/countballs')
-    def sensor():
-        # add sensor polling; maybe sensor.getcount?
-        return "nothing for now"
+def sensor():
+    # add sensor polling; maybe sensor.getcount?
+    return "nothing for now"
 
 @app.route('/centeragitator')
 def agitate():
