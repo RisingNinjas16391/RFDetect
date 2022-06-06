@@ -29,7 +29,7 @@ def sensor():
 
 @app.route('/centeragitator')
 def agitate():
-    if 'stop' in request.args and request.args['stop'].lower() = "true":
+    if 'stop' in request.args and request.args['stop'].lower() == "true":
         agitator.set_power(0)
         return "stopped motor"
     else:
